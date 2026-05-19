@@ -397,11 +397,42 @@ function showError(field, type = "required") {
                 if (!validateField(f)) valid = false;
             });
         }
+		const recaptcha = document.getElementById("recaptcha-container");
+		const recaptchaError = document.querySelector(".recaptcha-error");
+
+		const recaptchaResponse = grecaptcha.getResponse();
+		if (!recaptchaResponse) {
+			valid = false;
+
+			recaptcha.classList.add("error-field");
+
+			if (recaptchaError) {
+				recaptchaError.style.display = "block";
+			}
+		} else {
+			recaptcha.classList.remove("error-field");
+
+			if (recaptchaError) {
+				recaptchaError.style.display = "none";
+			}
+    }
+
         if (!valid) {
             e.preventDefault();
         }
     });
 });
+window.clearRecaptchaError = function () {
+
+    const recaptcha = document.getElementById("recaptcha-container");
+    const recaptchaError = document.querySelector(".recaptcha-error");
+
+    recaptcha.classList.remove("error-field");
+
+    if (recaptchaError) {
+        recaptchaError.style.display = "none";
+    }
+};
 </script>
 
 <style>
@@ -422,13 +453,21 @@ function showError(field, type = "required") {
     margin-bottom: 8px;
     display: none;
 }
+.recaptcha-box.error-field {
+    border: 2px solid red;
+    padding: 5px;
+    border-radius: 4px;
+    display: inline-block;
+}
 </style>
 
-<div class="g-recaptcha" data-sitekey="6LdlTI4sAAAAAAPS7s_NpjpeO9tTpB7G9I6uaY1C"></div><br>
+<div class="form-group"><div id="recaptcha-container" class="recaptcha-box"><div class="g-recaptcha" data-sitekey="6LdlTI4sAAAAAAPS7s_NpjpeO9tTpB7G9I6uaY1C" data-callback="clearRecaptchaError"></div></div>
+<div class="error-msg recaptcha-error" style="display:none; color:red;">Please complete the reCAPTCHA.</div></div>
 
 <input type="submit" name="submit">
 
 </form>
+
 </div>
 </div>
 <footer>
