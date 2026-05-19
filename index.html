@@ -94,9 +94,341 @@
 <!-- Contact Us Form -->
 <div class="card">
 <h2>Contact Us</h2>
-<button class="btn" onclick="openForm()">
-    Contact Us Form
-</button>
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+ function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+</script>
+<form action="https://tmicc--cecdev2.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D9V00000TkMPw" method="POST">
+
+<input type=hidden name='captcha_settings' value='{"keyname":"CEC_Web_ReCaptcha","fallback":"true","orgId":"00D9V00000TkMPw","ts":""}'>
+<input type=hidden name="orgid" value="00D9V00000TkMPw">
+<input type=hidden name="retURL" value="http://">
+<input type="hidden" name="status" value="New">
+<input type="hidden" name="priority" value="Medium">
+<input type="hidden" name="00N9O00000emUxo" value="Magnum">
+<input type="hidden" name="00N9O00000eIbRv" value="IN">
+<input type="hidden" name="00N9O00000eIbS4" value="EN">
+<input type="hidden" name="00N9V00000ezjff" value="magnum.com">
+<input type="hidden" name="recordType" value="012Mz000009Igzh">
+
+<div class="form-group">First Name<span class="required-star">*</span><input  id="00N9V00000ezjfc" maxlength="255" name="00N9V00000ezjfc" size="20" type="text" /><div class="error-msg">First Name is required.</div></div>
+
+<div class="form-group"><label for="name">Last Name<span class="required-star">*</span></label><input  id="name" maxlength="80" name="name" size="20" type="text" /><div class="error-msg">Last Name is required.</div></div>
+
+<div class="form-group"><label for="email">Email Address<span class="required-star">*</span> </label><input  id="email" maxlength="80" name="email" size="20" type="text" /><div class="error-msg required-error">Email Address is required</div><div class="error-msg format-error">Please enter a valid email address</div></div>
+
+<div class="form-group"><label for="phone">Phone Number</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><div class="error-msg format-error">Invalid phone number</div></div>
+
+<div class="form-group">Please tell us the reason for enquiry<span class="required-star">*</span><select  id="00N9V00000ezjfW" name="00N9V00000ezjfW" title= "Please tell us the reason for enquiry" onchange="handleTypeChange()" >
+<option value="">--None--</option>
+<option value="Is it for a Brand?">Is it for a Brand?</option>
+<option value="Is It for the Service?">Is It for the Service?</option>
+<option value="Is it for Data Subject Rights?">Is it for Data Subject Rights?</option>
+</select><div class="error-msg">Please select a reason for enquiry.</div></div>
+
+<div id="brandFields" style="display:none;">
+Product Name<input  id="00N9V00000ezjfd" maxlength="100" name="00N9V00000ezjfd" size="20" type="text" /><br>
+
+Barcode<input  id="00N9V00000ezjfa" maxlength="100" name="00N9V00000ezjfa" size="20" type="text" /><br>
+
+Production code<input  id="00N9V00000ezjfe" maxlength="100" name="00N9V00000ezjfe" size="20" type="text" /><br>
+
+How often do you use this product?<select  id="00N9V00000ezjfV" name="00N9V00000ezjfV" title="How often do you use this product"><option value="">--None--</option><option value="Daily">Daily</option>
+<option value="Weekly">Weekly</option>
+<option value="Monthly">Monthly</option>
+<option value="Yearly">Yearly</option>
+</select><br>
+
+Where do you usually buy this product?<select  id="00N9V00000ezjfi" name="00N9V00000ezjfi" title="Where do you usually buy this product?"><option value="">--None--</option><option value="Online">Online</option>
+<option value="Retailers">Retailers</option>
+<option value="Others">Others</option>
+</select><br>
+</div>
+
+<div id="dsrFields" style="display:none;">
+<div class="form-group">Type of Data Subject Rights<span class="required-star">*</span><select  id="00N9V00000ezjfX" name="00N9V00000ezjfX" title="Type of Data Subject Rights" >
+<option value="">--None--</option>
+<option value="Right to Know">Right to Know</option>
+<option value="Right to Access (Know Specific Pieces of Information) / Portability">Right to Access (Know Specific Pieces of Information) / Portability</option>
+<option value="Right to Correct">Right to Correct</option>
+<option value="Right to Delete">Right to Delete</option>
+<option value="Right to Opt-Out of Sale or Sharing (Right to Opt-Out of Targeted Advertising)">Right to Opt-Out of Sale or Sharing (Right to Opt-Out of Targeted Advertising)</option>
+<option value="Limit Use of My Sensitive Personal Information">Limit Use of My Sensitive Personal Information</option>
+<option value="Right to Confirm Processing of Consumer Health Data">Right to Confirm Processing of Consumer Health Data</option>
+<option value="Right to Access Consumer Health Data">Right to Access Consumer Health Data</option>
+<option value="Withdraw Consent to Collect and Share Consumer Health Data">Withdraw Consent to Collect and Share Consumer Health Data</option>
+<option value="Right to Delete Consumer Health Data">Right to Delete Consumer Health Data</option>
+</select><div class="error-msg">Please select Type of Data Subject Rights.</div></div>
+
+<div class="form-group">Address 1<span class="required-star">*</span><textarea  id="00N9V00000ezjfY" name="00N9V00000ezjfY" type="text" wrap="soft" ></textarea><div class="error-msg">Address 1 is required.</div></div>
+
+<div class="form-group">Address 2<textarea  id="00N9V00000ezjfZ" name="00N9V00000ezjfZ" type="text" wrap="soft"></textarea></div>
+
+<div class="form-group">State<span class="required-star">*</span><input  id="00N9V00000ezjfg" maxlength="255" name="00N9V00000ezjfg" size="20" type="text"  /><div class="error-msg">State is required.</div></div>
+
+<div class="form-group">Zipcode<span class="required-star">*</span><input  id="00N9V00000ezjfh" maxlength="255" name="00N9V00000ezjfh" size="20" type="text"  /><div class="error-msg">Zipcode is required.</div></div>
+</div>
+
+<div class="form-group"><label for="description">Please give us some more details to help us respond<span class="required-star">*</span></label><textarea name="description" ></textarea><div class="error-msg">Please provide details to help us respond to your concern.</div></div>
+
+<div class="form-group">I am over 16<span class="required-star">*</span><input  id="00N9V00000ezjfb" name="00N9V00000ezjfb" type="checkbox" value="1"  /><div class="error-msg">You must confirm you are over 16.</div></div>
+
+<script>
+function handleTypeChange() {
+    var type = document.getElementById("00N9V00000ezjfW").value;
+    var brandFields = document.getElementById("brandFields");
+
+    if (type === "Is it for a Brand?") {
+        brandFields.style.display = "block";
+    } else {
+        brandFields.style.display = "none";
+    }
+
+    var dsrFields = document.getElementById("dsrFields");
+    var dsrInputs = dsrFields.querySelectorAll("input, select, textarea");
+
+    if (type === "Is it for Data Subject Rights?") {
+        dsrFields.style.display = "block";
+    } else {
+        dsrFields.style.display = "none";
+        dsrInputs.forEach(function(field) {
+            field.required = false;
+            field.value = "";
+        });
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    let isSubmitted = false;
+    const firstName = document.getElementById("00N9V00000ezjfc");
+    const lastName = document.getElementById("name");
+    const email = document.getElementById("email");
+    const reason = document.getElementById("00N9V00000ezjfW");
+    const description = document.querySelector("textarea[name='description']");
+    const age = document.getElementById("00N9V00000ezjfb");
+    const dsrType = document.getElementById("00N9V00000ezjfX");
+    const address1 = document.getElementById("00N9V00000ezjfY");
+    const state = document.getElementById("00N9V00000ezjfg");
+    const zipcode = document.getElementById("00N9V00000ezjfh");
+    const form = document.querySelector("form");
+	const phone = document.getElementById('phone');
+	
+	const phoneRegexMap = {
+    "TR": /^(?:\+90|0)?5\d{9}$/,
+    "GB": /^(?:\+44|0)7\d{9}$/,
+    "IN": /^(?:\+91)?[6-9]\d{9}$/,
+    "BR": /^(?:\+55)?\d{10,11}$/,
+    "CA": /^(?:\+1)?[2-9]\d{9}$/,
+    "DE": /^(?:\+49|0)?\d{7,14}$/,
+    "FR": /^(?:\+33|0)[1-9]\d{8}$/,
+    "EC": /^(?:\+593)?(?:9\d{8}|[2-7]\d{7})$/,
+    "IT": /^(?:\+39)?\d{8,11}$/,
+    "AU": /^(?:\+61|0)(?:4\d{8}|[2378]\d{8})$/,
+    "IL": /^(?:\+972|0)5\d{8}$/,
+    "SE": /^(?:\+46|0)7\d{8,9}$/,
+    "PT": /^(?:\+351)?9\d{8}$/,
+    "NL": /^(?:\+31|0)6\d{8}$/,
+    "ID": /^(?:\+62|0)8\d{7,11}$/,
+    "ES": /^(?:\+34)?[6-9]\d{8}$/,
+    "PK": /^(?:\+92|0)3\d{9}$/,
+    "ZA": /^(?:\+27|0)[6-8]\d{8}$/,
+    "MY": /^(?:\+60|0)1\d{8,9}$/,
+    "MX": /^(?:\+52)?\d{10}$/,
+    "FI": /^(?:\+358|0)4\d{8}$/,
+    "DK": /^(?:\+45)?\d{8}$/,
+    "AT": /^(?:\+43|0)\d{7,13}$/,
+    "PH": /^(?:\+63|0)9\d{9}$/,
+    "PL": /^(?:\+48)?\d{9}$/,
+    "CH": /^(?:\+41|0)\d{9}$/,
+    "BE": /^(?:\+32|0)4\d{8}$/,
+    "SG": /^(?:\+65)?[689]\d{7}$/,
+    "HU": /^(?:\+36|0)\d{9}$/,
+    "GR": /^(?:\+30)?6\d{9}$/,
+    "CZ": /^(?:\+420)?\d{9}$/,
+    "AE": /^(?:\+971|0)5\d{8}$/,
+    "RO": /^(?:\+40|0)7\d{8}$/,
+    "TH": /^(?:\+66|0)\d{9}$/,
+    "SK": /^(?:\+421)?9\d{8}$/,
+    "IE": /^(?:\+353|0)8\d{8}$/,
+    "NZ": /^(?:\+64|0)2\d{8,9}$/,
+    "US": /^(?:\+1)?[2-9]\d{9}$/
+};
+
+function showError(field, type = "required") {
+    if (!field) return;
+
+    const container = field.closest(".form-group");
+    if (!container) return;
+
+    const messages = container.querySelectorAll(".error-msg");
+
+    field.classList.add("error-field");
+
+    messages.forEach(msg => msg.style.display = "none");
+
+    if (type === "required") {
+        const req = container.querySelector(".required-error") || messages[0];
+        if (req) req.style.display = "block";
+    }
+
+    if (type === "format") {
+        const format = container.querySelector(".format-error");
+        if (format) format.style.display = "block";
+    }
+}
+
+    function hideError(field) {
+        if (!field) return;
+        const messages = field.parentElement.querySelectorAll(".error-msg");
+        field.classList.remove("error-field");
+        messages.forEach(msg => msg.style.display = "none");
+    }
+
+    function validateField(field) {
+        if (!field) return true;
+        if (field.id === "email") {
+            if (!field.value || !field.value.trim()) {
+                showError(field, "required");
+                return false;
+            }
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(field.value.trim())) {
+                showError(field, "format");
+                return false;
+            }
+            hideError(field);
+            return true;
+        }
+		if (field.id === "phone") {
+			const isoField = document.querySelector("input[name='00N9O00000eIbRv']");
+            const iso = isoField ? isoField.value.trim().toUpperCase() : null;
+			if (!field.value || !field.value.trim()) {
+				hideError(field);
+				return true;
+			}
+			const regex = phoneRegexMap[iso];
+			if (regex && !regex.test(field.value.trim())) {
+				showError(field, "format");
+				return false;
+			}
+			hideError(field);
+			return true;
+		}
+        if (field.type === "checkbox") {
+            if (!field.checked) {
+                showError(field, "required");
+                return false;
+            } else {
+                hideError(field);
+                return true;
+            }
+        }
+        if (field.tagName === "SELECT") {
+            if (!field.value) {
+                showError(field, "required");
+                return false;
+            } else {
+                hideError(field);
+                return true;
+            }
+        }
+        if (!field.value || !field.value.trim()) {
+            showError(field, "required");
+            return false;
+        }
+        hideError(field);
+        return true;
+    }
+	
+    function attachLiveBehavior(field) {
+        if (!field) return;
+        field.addEventListener("input", () => {
+            if (isSubmitted) {
+                validateField(field);
+            } else {
+                hideError(field);
+            }
+        });
+        field.addEventListener("change", () => {
+            if (isSubmitted) {
+                validateField(field);
+            }
+        });
+    }
+
+    [firstName, lastName, email, reason,
+        description, age, dsrType,
+        address1, state, zipcode, phone].forEach(attachLiveBehavior);
+		
+    window.handleTypeChange = function () {
+        const type = reason.value;
+        const brandFields = document.getElementById("brandFields");
+        const dsrFields = document.getElementById("dsrFields");
+        if (type === "Is it for a Brand?") {
+            brandFields.style.display = "block";
+        } else {
+            brandFields.style.display = "none";
+        }
+        if (type === "Is it for Data Subject Rights?") {
+            dsrFields.style.display = "block";
+        } else {
+            dsrFields.style.display = "none";
+            dsrFields.querySelectorAll("input, select, textarea").forEach(f => {
+                f.value = "";
+                f.checked = false;
+                hideError(f);
+            });
+        }
+    };
+
+    form.addEventListener("submit", function (e) {
+        isSubmitted = true;
+        let valid = true;
+        const fields = [firstName, lastName, email,
+            reason, description, age, phone];
+        fields.forEach(f => {
+            if (!validateField(f)) valid = false;
+        });
+        if (reason.value === "Is it for Data Subject Rights?") {
+            const dsrFieldsArr = [dsrType, address1, state, zipcode];
+
+            dsrFieldsArr.forEach(f => {
+                if (!validateField(f)) valid = false;
+            });
+        }
+        if (!valid) {
+            e.preventDefault();
+        }
+    });
+});
+</script>
+
+<style>
+.required-star {
+    color: red;
+    margin-left: 4px;
+    font-weight: bold;
+}
+.error-field {
+    border: 1px solid red !important;
+    background-color: transparent;
+}
+
+.error-msg {
+    color: red;
+    font-size: 12px;
+    margin-top: 2px;
+    margin-bottom: 8px;
+    display: none;
+}
+</style>
+
+<div class="g-recaptcha" data-sitekey="6LdlTI4sAAAAAAPS7s_NpjpeO9tTpB7G9I6uaY1C"></div><br>
+
+<input type="submit" name="submit">
+
+</form>
 </div>
 </div>
 <footer>
