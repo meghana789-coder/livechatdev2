@@ -86,25 +86,13 @@
 <!-- Contact Us Form -->
 <div class="card">
 <h2>Contact Us</h2>
-
-<button type="button" class="btn" onclick="openContactForm()">
-    Contact Us Form
-</button>
-
-<script>
-function openContactForm() {
-    const ctx = btoa(JSON.stringify({
-	    brand: 'MAG345',
-	    country: 'US'
-	}));
-
-    const url =
-        'https://tmicc--cecdev2.sandbox.my.site.com/s/contact-us?language=en_US&ctx=' +
-        encodeURIComponent(ctx);
-    window.open(url, '_blank');
-}
-</script>
-
+<iframe id="salesforceFrame" title="Contact Us – Magnum" 
+	src="https://tmicc--cecdev3.sandbox.my.site.com/s/contact-us?language=es&brand=BF0543&country=ES" 
+	data-src="https://tmicc--cecdev3.sandbox.my.site.com/s/contact-us?language=es&brand=BF0543&country=ES" 
+	allow="clipboard-write" loading="lazy" 
+	sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation" 
+	style="width: 50vw; height: 220vh; border: none; overflow: hidden;">
+</iframe>
 </div>
 </div>
 <footer>
